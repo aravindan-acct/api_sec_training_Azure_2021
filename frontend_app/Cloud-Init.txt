@@ -1,0 +1,13 @@
+#! /bin/bash -xe
+
+touch /home/labuser/testfile.txt
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+sudo apt-get -y update
+sudo  apt-get -y install git python3 python-pip python3-pip
+dir=$(pwd)
+#Logic for getting the wafprivate ip
+git clone https://github.com/aravindan-acct/frontend_UI_app.git
+cd $dir/frontend_UI_app/
+pip3 install --user -r requirements.txt
+python3 waf_configuration.py
+python3 -m project
