@@ -274,9 +274,6 @@
             "name": "[concat(variables('wafvmname'), '_disk1')]",
             "createOption": "FromImage",
             "caching": "ReadWrite",
-            "managedDisk": {
-              "storageAccountType": "Premium_LRS"
-            },
             "diskSizeGB": 100
           }
         },
