@@ -31,7 +31,9 @@
     "nsgname": "api_server_nsg",
     "publicipvmname": "api_server_public_ip",
     "publicipprefixname":"natgateway_public_ip_1",
-    "adminusername": "labuser"
+    "adminusername": "labuser",
+    "customData": "[concat('#include\n',uri(parameters('_artifactsLocation'),concat('Cloud-Init.txt', parameters('_artifactsLocationSasToken'))))]"
+
   },
   "resources": [
     {
@@ -132,6 +134,7 @@
           "computerName": "[variables('vmname')]",
           "adminUsername": "[variables('adminusername')]",
           "adminPassword": "[parameters('adminpassword')]",
+          "customData": "[base64(variables('customData'))]",
           "linuxConfiguration": {
             "disablePasswordAuthentication": false,
             "provisionVMAgent": true
