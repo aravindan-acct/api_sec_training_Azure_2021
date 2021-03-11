@@ -24,7 +24,7 @@
     "Privatesubnetname": "PrivateSubnet",
     "Publicsubnetprefix": "192.168.0.0/24",
     "Privatesubnetprefix": "192.168.1.0/24",
-    "vmname": "API_Server",
+    "vmname": "APIServer",
     "vmsize": "Standard_D2s_v3",
     "networkinterfacename": "api_server_nic",
     "publicipname": "natgateway_public_ip",
