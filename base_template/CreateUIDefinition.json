@@ -23,11 +23,6 @@
         ],
         "steps": [],
         "outputs": {
-            "adminUsername": "[basics('adminUsername')]",
-            "authenticationType": "[basics('authenticationType')]",
-            "adminPasswordOrKey": "[basics('adminPasswordOrKey')]",
-            "dnsLabelPrefix": "[basics('dnsLabelPrefix')]",
-            "ubuntuOSVersion": "[basics('ubuntuOSVersion')]",
             "location": "[basics('location')]"
         }
     }
