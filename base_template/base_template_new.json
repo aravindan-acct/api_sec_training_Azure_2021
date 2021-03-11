@@ -47,7 +47,7 @@
     "vmname": "APIServer",
     "wafvmname": "BarracudaCGWAF",
     "vmsize": "Standard_D2s_v3",
-    "wafvmsize": "Standard_D2_v2",
+    "wafvmsize": "Standard_D2_v3",
     "networkinterfacename": "api_server_nic",
     "wafnetworkinterfacename": "waf_nic",
     "publicipname": "natgateway_public_ip",
@@ -273,7 +273,8 @@
             "osType": "Linux",
             "name": "[concat(variables('wafvmname'), '_disk1')]",
             "createOption": "FromImage",
-            "caching": "ReadWrite"
+            "caching": "ReadWrite",
+            "diskSizeGB": 50
           }
         },
         "osProfile": {
