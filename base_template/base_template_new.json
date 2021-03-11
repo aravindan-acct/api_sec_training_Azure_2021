@@ -279,6 +279,7 @@
         },
         "osProfile": {
           "computerName": "[variables('wafvmname')]",
+          "adminUsername": "admin",
           "adminPassword": "[parameters('wafadminpassword')]",
           "linuxConfiguration": {
             "disablePasswordAuthentication": false
