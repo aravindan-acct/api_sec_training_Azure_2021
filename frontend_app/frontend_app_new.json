@@ -43,6 +43,7 @@
     "Privatesubnetprefix": "192.168.1.0/24",
     "vmname": "FrontEndWebServer",
     "vmsize": "Standard_D2s_v3",
+    "nsgname": "Frontend_web_server_NSG"
     "networkinterfacename": "frontend_web_server_nic",
     "publicipvmname": "frontend_web_server_public_ip",
     "adminusername": "labuser",
@@ -143,8 +144,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicipvmname'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), variables('Privatesubnetname'))]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), variables('Privatesubnetname'))]"
       ],
       "properties": {
         "ipConfigurations": [
