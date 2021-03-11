@@ -144,7 +144,6 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicipvmname'))]",
-        "[variables('Privatesubnetname')]",
         "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
         ],
       "properties": {
