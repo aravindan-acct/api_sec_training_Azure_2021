@@ -273,8 +273,7 @@
             "osType": "Linux",
             "name": "[concat(variables('wafvmname'), '_disk1')]",
             "createOption": "FromImage",
-            "caching": "ReadWrite",
-            "diskSizeGB": 100
+            "caching": "ReadWrite"
           }
         },
         "osProfile": {
