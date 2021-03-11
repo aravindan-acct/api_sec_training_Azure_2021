@@ -57,6 +57,7 @@
     "publicipvmname": "api_server_public_ip",
     "publicipprefixname":"natgateway_public_ip_1",
     "adminusername": "labuser",
+    "license": "byol",
     "customData": "[concat('#include\n',uri(parameters('_artifactsLocation'),concat('Cloud-Init.txt', parameters('_artifactsLocationSasToken'))))]"
   },
   "resources": [
@@ -258,6 +259,11 @@
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkInterfaces', variables('wafnetworkinterfacename'))]"
       ],
+      "plan": {
+        "name": "[variables('license')]",
+        "Product": "waf",
+        "Publisher": "barracudanetworks"
+      },
       "properties": {
         "hardwareProfile": {
           "vmSize": "[variables('wafvmsize')]"
