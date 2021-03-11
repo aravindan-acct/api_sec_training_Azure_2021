@@ -1,4 +1,3 @@
-#cloud-config
-package_upgrade: true
-packages:
-  - httpd
+#! /bin/bash
+
+touch /home/labuser/testfile.txt
