@@ -1,5 +1,5 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
@@ -58,14 +58,16 @@
     "imageOffer": "UbuntuServer",
     "nicName": "myVMNic",
     "addressPrefix": "10.0.0.0/16",
-    "subnetName": "Subnet",
-    "subnetPrefix": "10.0.0.0/24",
+    "publicsubnetName": "PublicSubnet",
+    "privatesubnetName": "PrivateSubnet",
+    "publicsubnetPrefix": "10.0.0.0/24",
+    "privatesubnetPrefix": "10.0.1.0/24",
     "storageAccountType": "Standard_LRS",
     "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
     "vmName": "MyUbuntuVM",
     "vmSize": "Standard_A1",
-    "virtualNetworkName": "MyVNET",
+    "virtualNetworkName": "LabVNET",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "ssh": {
@@ -116,9 +118,15 @@
         },
         "subnets": [
           {
-            "name": "[variables('subnetName')]",
+            "name": "[variables('publicsubnetName')]",
             "properties": {
-              "addressPrefix": "[variables('subnetPrefix')]"
+              "addressPrefix": "[variables('publicsubnetPrefix')]"
+            }
+          },
+          {
+            "name": "[variables('privatesubnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('privatesubnetPrefix')]"
             }
           }
         ]

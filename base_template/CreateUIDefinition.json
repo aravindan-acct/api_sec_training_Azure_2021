@@ -1,0 +1,128 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "resourceTypes": [
+            "microsoft.resources/resourcegroups"
+        ],
+        "basics": [
+            {
+                "name": "adminUsername",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Admin Username",
+                "defaultValue": "",
+                "toolTip": "User name for the Virtual Machine.",
+                "constraints": {
+                    "required": true,
+                    "regex": "",
+                    "validationMessage": ""
+                },
+                "visible": true
+            },
+            {
+                "name": "authenticationType",
+                "type": "Microsoft.Common.DropDown",
+                "label": "Authentication Type",
+                "defaultValue": "sshPublicKey",
+                "toolTip": "Type of authentication to use on the Virtual Machine. SSH key is recommended.",
+                "constraints": {
+                    "required": false,
+                    "allowedValues": [
+                        {
+                            "label": "sshPublicKey",
+                            "value": "sshPublicKey"
+                        },
+                        {
+                            "label": "password",
+                            "value": "password"
+                        }
+                    ]
+                },
+                "visible": true
+            },
+            {
+                "name": "adminPasswordOrKey",
+                "type": "Microsoft.Common.PasswordBox",
+                "label": {
+                    "password": "Admin Password Or Key",
+                    "confirmPassword": "Confirm password"
+                },
+                "toolTip": "SSH Key or password for the Virtual Machine. SSH key is recommended.",
+                "constraints": {
+                    "required": true,
+                    "regex": "",
+                    "validationMessage": ""
+                },
+                "options": {
+                    "hideConfirmation": true
+                },
+                "visible": true
+            },
+            {
+                "name": "dnsLabelPrefix",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Dns Label Prefix",
+                "defaultValue": "",
+                "toolTip": "Unique DNS Name for the Public IP used to access the Virtual Machine.",
+                "constraints": {
+                    "required": true,
+                    "regex": "",
+                    "validationMessage": ""
+                },
+                "visible": true
+            },
+            {
+                "name": "ubuntuOSVersion",
+                "type": "Microsoft.Common.DropDown",
+                "label": "Ubuntu OS Version",
+                "defaultValue": "16.04.0-LTS",
+                "toolTip": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version.",
+                "constraints": {
+                    "required": false,
+                    "allowedValues": [
+                        {
+                            "label": "12.04.5-LTS",
+                            "value": "12.04.5-LTS"
+                        },
+                        {
+                            "label": "14.04.5-LTS",
+                            "value": "14.04.5-LTS"
+                        },
+                        {
+                            "label": "16.04.0-LTS",
+                            "value": "16.04.0-LTS"
+                        },
+                        {
+                            "label": "18.04-LTS",
+                            "value": "18.04-LTS"
+                        }
+                    ]
+                },
+                "visible": true
+            },
+            {
+                "name": "location",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Location",
+                "defaultValue": "[[resourceGroup().location]",
+                "toolTip": "Location for all resources.",
+                "constraints": {
+                    "required": false,
+                    "regex": "",
+                    "validationMessage": ""
+                },
+                "visible": true
+            }
+        ],
+        "steps": [],
+        "outputs": {
+            "adminUsername": "[basics('adminUsername')]",
+            "authenticationType": "[basics('authenticationType')]",
+            "adminPasswordOrKey": "[basics('adminPasswordOrKey')]",
+            "dnsLabelPrefix": "[basics('dnsLabelPrefix')]",
+            "ubuntuOSVersion": "[basics('ubuntuOSVersion')]",
+            "location": "[basics('location')]"
+        }
+    }
+}
