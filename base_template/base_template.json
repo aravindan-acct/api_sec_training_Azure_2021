@@ -212,13 +212,26 @@
     {
       "type": "Microsoft.Network/virtualNetworks/subnets",
       "apiVersion": "2020-05-01",
-      "name": "[concat(variables('vnetname'), variables('Publicsubnetname'))]",
+      "name": "[concat(variables('vnetname'), '/publicsubnet')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetname'))]",
-        "[resourceId('Microsoft.Network/natGateways', variables('natgatewayname'))]"
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetname'))]"
       ],
       "properties": {
         "addressPrefix": "[variables('Publicsubnetprefix')]",
+        "privateEndpointNetworkPolicies": "Enabled",
+        "privateLinkServiceNetworkPolicies": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(variables('vnetname'), '/privatesubnet')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetname'))]"
+        
+      ],
+      "properties": {
+        "addressPrefix": "[variables('Privatesubnetprefix')]",
         "natGateway": {
           "id": "[resourceId('Microsoft.Network/natGateways', variables('natgatewayname'))]"
         },
