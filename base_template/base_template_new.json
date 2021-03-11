@@ -104,7 +104,7 @@
             }
           },
           {
-            "name": "UIMgmtAccess",
+            "name": "SecureUIMgmtAccess",
             "properties": {
               "protocol": "TCP",
               "sourcePortRange": "*",
@@ -117,7 +117,7 @@
             }
           },
           {
-            "name": "UIMgmtAccess",
+            "name": "TrafficAccess",
             "properties": {
               "protocol": "TCP",
               "sourcePortRange": "*",
@@ -130,7 +130,7 @@
             }
           },
           {
-            "name": "UIMgmtAccess",
+            "name": "SecureTrafficAccess",
             "properties": {
               "protocol": "TCP",
               "sourcePortRange": "*",
