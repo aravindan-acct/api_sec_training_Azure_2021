@@ -45,7 +45,7 @@
     "vmName": "MyUbuntuVM",
     "vmSize": "Standard_A1",
     "virtualNetworkName": "LabVNET",
-    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('privatesubnetName'))]"
   },
   "resources": [
     {
