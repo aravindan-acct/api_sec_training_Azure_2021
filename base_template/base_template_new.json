@@ -46,7 +46,7 @@
     "Privatesubnetprefix": "192.168.1.0/24",
     "vmname": "APIServer",
     "wafvmname": "BarracudaCGWAF",
-    "vmsize": "Standard_D2_v2",
+    "vmsize": "Standard_D2s_v3",
     "wafvmsize": "Standard_D2_v2",
     "networkinterfacename": "api_server_nic",
     "wafnetworkinterfacename": "waf_nic",
@@ -277,7 +277,7 @@
             "managedDisk": {
               "storageAccountType": "Premium_LRS"
             },
-            "diskSizeGB": 30
+            "diskSizeGB": 100
           }
         },
         "osProfile": {
