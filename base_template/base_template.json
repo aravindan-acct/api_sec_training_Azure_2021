@@ -165,13 +165,13 @@
           {
             "name": "[variables('Publicsubnetname')]",
             "properties":{
-              "addressPrefix": "[variables('vnetsubnetprefix')]"
+              "addressPrefix": "[variables('Publicsubnetprefix')]"
             }
           },
           {
             "name": "[variables('Privatesubnetname')]",
             "properties": {
-              "addressPrefix": "[variables('vnetsubnetprefix')]",
+              "addressPrefix": "[variables('Privatesubnetprefix')]",
               "natGateway": {
                 "id": "[resourceId('Microsoft.Network/natGateways', variables('natgatewayname'))]"
               },
