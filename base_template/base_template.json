@@ -114,7 +114,7 @@
           "imageReference": {
             "publisher": "OpenLogic",
             "offer": "CentOS",
-            "sku": "8_3"
+            "version": "8_3"
           },
           "osDisk": {
             "osType": "Linux",
