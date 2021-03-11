@@ -115,7 +115,7 @@
             "publisher": "OpenLogic",
             "offer": "CentOS",
             "sku": "8_3",
-            "version": "Latest"
+            "version": "latest"
           },
           "osDisk": {
             "osType": "Linux",
