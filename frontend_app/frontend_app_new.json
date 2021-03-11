@@ -38,6 +38,9 @@
   },
   "variables": {
     "vnetname": "LabVnet",
+    "vnetId": {
+      "existing": "[resourceId(parameters(resourceGroup()),'Microsoft.Network/virtualNetworks','LabVnet')]"
+    },
     "vnetaddressspace": "192.168.0.0/16",
     "Privatesubnetname": "PrivateSubnet",
     "Privatesubnetprefix": "192.168.1.0/24",
