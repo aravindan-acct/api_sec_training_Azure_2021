@@ -31,11 +31,11 @@
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
     },
-    "ubuntuOSVersion": {
+    "ApiServerOSVersion": {
       "type": "string",
-      "defaultValue": "16.04.0-LTS",
+      "defaultValue": "8_3",
       "metadata": {
-        "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
+        "description": "The CentOS version for the VM. This will pick a fully patched image of this given CentOS version."
       }
     },
     "location": {
@@ -48,12 +48,14 @@
   },
   "variables": {
     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'salinuxvm')]",
-    "imagePublisher": "Canonical",
-    "imageOffer": "UbuntuServer",
+    "imagePublisher": "OpenLogic",
+    "imageOffer": "CentOS",
     "nicName": "myVMNic",
     "addressPrefix": "10.0.0.0/16",
-    "subnetName": "Subnet",
-    "subnetPrefix": "10.0.0.0/24",
+    "PublicsubnetName": "PublicSubnet",
+    "PrivatesubnetName": "PrivateSubnet",
+    "PublicsubnetPrefix": "10.0.0.0/24",
+    "PrivatesubnetPrefix": "10.0.1.0/24",
     "storageAccountType": "Standard_LRS",
     "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
@@ -71,7 +73,7 @@
         ]
       }
     },
-    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('PrivatesubnetName'))]"
   },
   "resources": [
     {
@@ -110,9 +112,15 @@
         },
         "subnets": [
           {
-            "name": "[variables('subnetName')]",
+            "name": "[variables('PublicsubnetName')]",
             "properties": {
-              "addressPrefix": "[variables('subnetPrefix')]"
+              "addressPrefix": "[variables('PublicsubnetPrefix')]"
+            }
+          },
+          {
+            "name": "[variables('PrivatesubnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('PrivatesubnetPrefix')]"
             }
           }
         ]
@@ -167,7 +175,7 @@
           "imageReference": {
             "publisher": "[variables('imagePublisher')]",
             "offer": "[variables('imageOffer')]",
-            "sku": "[parameters('ubuntuOSVersion')]",
+            "sku": "[parameters('ApiServerOSVersion')]",
             "version": "latest"
           },
           "osDisk": {
