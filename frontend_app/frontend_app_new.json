@@ -7,7 +7,7 @@
       "metadata": {
         "description": "The base URI where artifacts required by this template are located."
       },
-      "defaultValue": "https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/base_template/"
+      "defaultValue": "https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/frontend_app/"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
@@ -38,9 +38,12 @@
   },
   "variables": {
     "vnetname": "LabVnet",
+    "virtualNetworkResourceGroupName": "[resourceGroup().name]",
     "vnetId": {
-      "existing": "[resourceId(parameters(resourceGroup()),'Microsoft.Network/virtualNetworks','LabVnet')]"
+      "existing": "[resourceId(parameters('virtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]"
     },
+    "virtualNetworkNewOrExisting":false,
+    "subnetId": "[concat(variables('vnetId')[variables('virtualNetworkNewOrExisting')],'/subnets/',variables('PrivatesubnetName'))]",
     "vnetaddressspace": "192.168.0.0/16",
     "Privatesubnetname": "PrivateSubnet",
     "Privatesubnetprefix": "192.168.1.0/24",
@@ -159,7 +162,9 @@
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicipvmname'))]"
               },
-              "subnet": "[variables('Privatesubnetname')]",
+              "subnet": {
+              "id": "[resourceId(variables('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets/', variables('virtualNetworkName'), variables('subnetName'))]"
+              },
               "primary": true,
               "privateIPAddressVersion": "IPv4"
             }
