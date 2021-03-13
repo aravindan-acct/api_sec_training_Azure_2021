@@ -164,7 +164,7 @@
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicipvmname'))]"
               },
               "subnet": {
-              "id": "[resourceId(variables('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets/', variables('vnetname'), variables('subnetName'))]"
+              "id": "[resourceId(variables('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets/', variables('vnetname'), variables('PrivatesubnetName'))]"
               },
               "primary": true,
               "privateIPAddressVersion": "IPv4"
