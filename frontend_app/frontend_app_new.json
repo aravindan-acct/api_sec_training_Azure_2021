@@ -39,6 +39,7 @@
   "variables": {
     "vnetname": "LabVnet",
     "virtualNetworkResourceGroupName": "[resourceGroup().name]",
+    "virtualNetworkResourceGroup": "[resourceGroup().name]",
     "vnetId": {
       "existing": "[resourceId(parameters('virtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]"
     },
