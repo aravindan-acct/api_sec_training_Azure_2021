@@ -41,9 +41,9 @@
     "virtualNetworkResourceGroupName": "[resourceGroup().name]",
     "virtualNetworkResourceGroup": "[resourceGroup().name]",
     "vnetId": {
-      "existing": "[resourceId(variables('virtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]"
+      "existing": "[resourceId(variables('virtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks',variables('vnetname'))]"
     },
-    "virtualNetworkNewOrExisting":false,
+    "virtualNetworkNewOrExisting":"Existing",
     "subnetId": "[concat(variables('vnetId')[variables('virtualNetworkNewOrExisting')],'/subnets/',variables('PrivatesubnetName'))]",
     "vnetaddressspace": "192.168.0.0/16",
     "Privatesubnetname": "PrivateSubnet",
@@ -164,7 +164,7 @@
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicipvmname'))]"
               },
               "subnet": {
-              "id": "[resourceId(variables('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets/', variables('virtualNetworkName'), variables('subnetName'))]"
+              "id": "[resourceId(variables('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets/', variables('vnetname'), variables('subnetName'))]"
               },
               "primary": true,
               "privateIPAddressVersion": "IPv4"
