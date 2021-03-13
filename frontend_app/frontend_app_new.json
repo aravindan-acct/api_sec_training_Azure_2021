@@ -41,7 +41,7 @@
     "virtualNetworkResourceGroupName": "[resourceGroup().name]",
     "virtualNetworkResourceGroup": "[resourceGroup().name]",
     "vnetId": {
-      "existing": "[resourceId(parameters('virtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]"
+      "existing": "[resourceId(variables('virtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]"
     },
     "virtualNetworkNewOrExisting":false,
     "subnetId": "[concat(variables('vnetId')[variables('virtualNetworkNewOrExisting')],'/subnets/',variables('PrivatesubnetName'))]",
