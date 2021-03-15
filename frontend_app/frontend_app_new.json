@@ -208,7 +208,7 @@
         },
         "protectedSettings": {
           "fileUris": ["https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/frontend_app/Cloud-Init.txt"],
-           "commandToExecute": "sudo bash /var/lib/waagent/custom-script/download/0/Cloud-init.txt"
+           "commandToExecute": "sudo bash /var/lib/waagent/custom-script/download/0/Cloud-Init.txt"
            
         }
       }
