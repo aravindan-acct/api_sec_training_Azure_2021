@@ -4,7 +4,7 @@ touch /home/labuser/testfile123.txt
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 sudo apt-get -y update
 sudo  apt-get -y install git python3 python-pip python3-pip jq
-dir="/var/lib/waagent/custom-script/download/0/"
+dir="/var/lib/waagent/custom-script/download/0"
 #Logic for getting the wafprivate ip
 git clone https://github.com/aravindan-acct/frontend_UI_app.git
 sudo cp /var/lib/waagent/ovf-env.xml $dir/
