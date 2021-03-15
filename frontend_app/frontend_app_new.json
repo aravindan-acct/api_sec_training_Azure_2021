@@ -190,7 +190,7 @@
     },
     {
       "name": "config-app",
-      "type": "Extensions",
+      "type": "extensions",
       "location": "[resourceGroup().location]",
       "apiVersion": "2019-03-01",
       "dependsOn": [
@@ -205,8 +205,6 @@
         "typeHandlerVersion": "2.1",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "skipDos2Unix":false,
-          "timestamp":123456789          
         },
         "protectedSettings": {
            "commandToExecute": "sh Cloud-init.txt",
