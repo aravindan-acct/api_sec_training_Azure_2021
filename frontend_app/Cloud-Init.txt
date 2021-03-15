@@ -12,13 +12,13 @@ cp $dir/frontend_UI_app/xml_to_json.py $dir/
 cp $dir/frontend_UI_app/waf_configuration_azure.py $dir/
 pip install xmltodict
 python $dir/xml_to_json.py
-cat $dir/waf_json | jq -r '.waf_ip'
-cat $dir/waf_json | jq -r '.waf_public_ip'
+wafip=$(cat $dir/waf_json | jq -r '.waf_ip')
+wafpublicip=$(cat $dir/waf_json | jq -r '.waf_public_ip')
 echo "sleeping for 3 seconds"
 sleep 3
-export WAFIP=$(cat $dir/waf_json | jq -r '.waf_ip')
+export WAFIP=$wafip
 echo "waf private variable set"
-export WAFPublicIP=$(cat $dir/waf_json | jq -r '.waf_public_ip')
+export WAFPublicIP=$wafpublicip
 echo "waf public variable set"
 pip3 install --user -r $dir/frontend_UI_app/requirements.txt
 python3 $dir/waf_configuration_azure.py
