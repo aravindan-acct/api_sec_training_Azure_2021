@@ -15,7 +15,7 @@ python $dir/xml_to_json.py
 cat $dir/waf_json | jq -r '.waf_ip'
 echo "sleeping for 3 seconds"
 sleep 3
-WAFIP=$(cat $dir/waf_json | jq -r '.waf_ip')
+export WAFIP=$(cat $dir/waf_json | jq -r '.waf_ip')
 echo "waf variable set"
 pip3 install http-basic-auth==1.2.0
 python3 $dir/waf_configuration_azure.py
