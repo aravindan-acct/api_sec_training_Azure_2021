@@ -61,7 +61,8 @@
     "publicipvmname": "frontend_web_server_public_ip",
     "adminusername": "labuser",
     "userData": {
-      "waf_password": "[parameters('bwafpassword')]"  
+      "waf_password": "[parameters('bwafpassword')]",
+      "waf_ip": "[parameters('wafIPAddress')]"
     },
     "customData": "[string(variables('userData'))]"
   },
@@ -204,10 +205,10 @@
         "typeHandlerVersion": "2.1",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "fileUris": ["https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/frontend_app/Cloud-Init.txt"]
         },
         "protectedSettings": {
-           "commandToExecute": "sudo sh Cloud-init.txt"
+          "fileUris": ["https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/frontend_app/Cloud-Init.txt"],
+           "commandToExecute": "bash Cloud-init.txt"
            
         }
       }
