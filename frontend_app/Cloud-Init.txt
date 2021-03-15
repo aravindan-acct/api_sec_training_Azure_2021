@@ -20,9 +20,8 @@ export WAFIP=$(cat $dir/waf_json | jq -r '.waf_ip')
 echo "waf private variable set"
 export WAFPublicIP=$(cat $dir/waf_json | jq -r '.waf_public_ip')
 echo "waf public variable set"
-pip3 install http-basic-auth==1.2.0
+pip3 install --user -r $dir/frontend_UI_app/requirements.txt
 python3 $dir/waf_configuration_azure.py
 echo "waf configured"
 cd $dir/frontend_UI_app/
-pip3 install --user -r requirements.txt
 python3 -m project
