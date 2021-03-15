@@ -188,7 +188,7 @@
       }
     },
     {
-      "name": "virtualMachineName/config-app",
+      "name": "FrontEndWebServer/config-app",
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "location": "[resourceGroup().location]",
       "apiVersion": "2018-06-01",
