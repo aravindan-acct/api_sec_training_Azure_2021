@@ -207,7 +207,7 @@
         "settings": {
         },
         "protectedSettings": {
-          "fileUris": ["https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/frontend_app/Cloud-Init.txt"],
+          "fileUris": ["https://github.com/aravindan-acct/api_sec_training_Azure_2021/blob/main/frontend_app/Cloud-Init.txt"],
            "commandToExecute": "bash Cloud-init.txt"
            
         }
