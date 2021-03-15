@@ -13,8 +13,8 @@ cp $dir/frontend_UI_app/waf_configuration_azure.py $dir/
 pip install xmltodict
 pip install base64
 python $dir/xml_to_json.py
-WAFIP=$(cat waf_json | jq -r '.waf_ip')
-python3 waf_configuration_azure.py
+WAFIP=$(cat $dir/waf_json | jq -r '.waf_ip')
+python3 $dir/waf_configuration_azure.py
 cd $dir/frontend_UI_app/
 pip3 install --user -r requirements.txt
 python3 -m project
