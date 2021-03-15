@@ -12,7 +12,7 @@ cp $dir/frontend_UI_app/xml_to_json.py $dir/
 cp $dir/frontend_UI_app/waf_configuration_azure.py $dir/
 pip install xmltodict
 pip install base64
-python3 $dir/xml_to_json.py
+python $dir/xml_to_json.py
 WAFIP=$(cat waf_json | jq -r '.waf_ip')
 python3 waf_configuration_azure.py
 cd $dir/frontend_UI_app/
