@@ -13,7 +13,9 @@ cp $dir/frontend_UI_app/waf_configuration_azure.py $dir/
 pip install xmltodict
 python $dir/xml_to_json.py
 wafip=$(cat $dir/waf_json | jq -r '.waf_ip')
+echo $wafIP
 wafpublicip=$(cat $dir/waf_json | jq -r '.waf_public_ip')
+echo $wafpublicip
 echo "sleeping for 3 seconds"
 sleep 3
 export WAFIP=$wafip
