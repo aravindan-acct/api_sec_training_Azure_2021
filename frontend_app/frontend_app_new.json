@@ -193,7 +193,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2018-06-01",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]"
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
       ],
       "tags": {
         "displayName": "config-app"
