@@ -20,8 +20,10 @@ echo "sleeping for 3 seconds"
 sleep 3
 export WAFIP=$wafip
 echo "waf private variable set"
+echo $WAFIP
 export WAFPublicIP=$wafpublicip
 echo "waf public variable set"
+echo $WAFPublicIP
 pip3 install --user -r $dir/frontend_UI_app/requirements.txt
 python3 $dir/waf_configuration_azure.py
 echo "waf configured"
