@@ -28,7 +28,13 @@
         "description": "Administrator password for Barracuda WAF created as part of the base template"
       }
     },
-    "wafIPAddress": {
+    "wafPrivateIPAddress": {
+      "type": "String",
+      "metadata": {
+        "description": "Barracuda Cloudgen WAF privateIP address"
+      }
+    },
+    "wafPublicIPAddress": {
       "type": "String",
       "metadata": {
         "description": "Barracuda Cloudgen WAF privateIP address"
@@ -62,7 +68,8 @@
     "adminusername": "labuser",
     "userData": {
       "waf_password": "[parameters('bwafpassword')]",
-      "waf_ip": "[parameters('wafIPAddress')]"
+      "waf_ip": "[parameters('wafPrivateIPAddress')]", 
+      "waf_public_ip" : "[parameters('wafPublicIPAddress')]"
     },
     "customData": "[string(variables('userData'))]"
   },
@@ -135,7 +142,7 @@
           }
         },
         "osProfile": {
-          "computerName": "[parameters('wafIPAddress')]",
+          "computerName": "[variables('vmname')]",
           "adminUsername": "[variables('adminusername')]",
           "adminPassword": "[parameters('adminpassword')]",
           "customData": "[base64(variables('customData'))]",
