@@ -61,8 +61,7 @@
     "publicipvmname": "frontend_web_server_public_ip",
     "adminusername": "labuser",
     "userData": {
-      "waf_password": "[parameters('bwafpassword')]",
-      "init_script":"[concat('#include\n',uri(parameters('_artifactsLocation'),concat('Cloud-Init.txt', parameters('_artifactsLocationSasToken'))))]"
+      "waf_password": "[parameters('bwafpassword')]"  
     },
     "customData": "[string(variables('userData'))]"
   },
