@@ -17,8 +17,9 @@ cat $dir/waf_json | jq -r '.waf_public_ip'
 echo "sleeping for 3 seconds"
 sleep 3
 export WAFIP=$(cat $dir/waf_json | jq -r '.waf_ip')
-export WAFPublicIP = $(cat $dir/waf_json | jq -r '.waf_public_ip')
-echo "waf variable set"
+echo "waf private variable set"
+export WAFPublicIP=$(cat $dir/waf_json | jq -r '.waf_public_ip')
+echo "waf public variable set"
 pip3 install http-basic-auth==1.2.0
 python3 $dir/waf_configuration_azure.py
 echo "waf configured"
