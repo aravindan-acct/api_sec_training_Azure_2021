@@ -189,7 +189,7 @@
     },
     {
       "name": "config-app",
-      "type": "extensions",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
       "location": "[resourceGroup().location]",
       "apiVersion": "2019-03-01",
       "dependsOn": [
@@ -204,10 +204,11 @@
         "typeHandlerVersion": "2.1",
         "autoUpgradeMinorVersion": true,
         "settings": {
+          "fileUris": ["https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/frontend_app/Cloud-Init.txt"]
         },
         "protectedSettings": {
-           "commandToExecute": "sh Cloud-init.txt",
-           "fileUris": ["https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/frontend_app/Cloud-Init.txt"]
+           "commandToExecute": "sudo sh Cloud-init.txt"
+           
         }
       }
     }
