@@ -187,30 +187,6 @@
           "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
         }
       }
-    },
-    {
-      "name": "config-app",
-      "type": "extensions",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2019-03-01",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
-      ],
-      "tags": {
-        "displayName": "config-app"
-      },
-      "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.1",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-        },
-        "protectedSettings": {
-           "commandToExecute": "sh Cloud-init.txt",
-           "fileUris": ["https://raw.githubusercontent.com/aravindan-acct/api_sec_training_Azure_2021/main/frontend_app/Cloud-Init.txt"]
-        }
-      }
     }
   ]
 }
