@@ -1,4 +1,4 @@
-### Parameters
+### Template Parameters
 
 1. "Resource Group" - Select the resource group that was created as part of the base_template_new.json
 2. "adminpassword" - Password to login to the Linux server i.e. the frontend Web UI server deployed as part of this template.
