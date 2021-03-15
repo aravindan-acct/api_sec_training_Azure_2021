@@ -4,12 +4,14 @@ touch /home/labuser/testfile123.txt
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 sudo apt-get -y update
 sudo  apt-get -y install git python3 python-pip python3-pip
-dir=$(pwd)
+dir="/var/lib/waagent/custom-script/download/0/"
 #Logic for getting the wafprivate ip
 git clone https://github.com/aravindan-acct/frontend_UI_app.git
-sudo cp /var/lib/waagent/ovf-env.xml $dir
-cd $dir/frontend_UI_app/
+sudo cp /var/lib/waagent/ovf-env.xml $dir/
+cp $dir/frontend_UI_app/xml_to_json.py $dir/
 pip install xmltodict
+python $dir/xml_to_json.py
+cd $dir/frontend_UI_app/
 pip3 install --user -r requirements.txt
 python3 waf_configuration.py
 python3 -m project
