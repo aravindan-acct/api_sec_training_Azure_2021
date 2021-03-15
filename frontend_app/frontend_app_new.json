@@ -22,6 +22,12 @@
         "description": "Administrator password for virtual machine"
       }
     },
+    "bwafpassword": {
+      "type": "secureString",
+      "metadata": {
+        "description": "Administrator password for Barracuda WAF created as part of the base template"
+      }
+    },
     "wafIPAddress": {
       "type": "String",
       "metadata": {
@@ -54,7 +60,10 @@
     "networkinterfacename": "frontend_web_server_nic",
     "publicipvmname": "frontend_web_server_public_ip",
     "adminusername": "labuser",
-    "customData": "[concat('#include\n',uri(parameters('_artifactsLocation'),concat('Cloud-Init.txt', parameters('_artifactsLocationSasToken'))))]"
+    "userData": {
+      "waf_password": "[parameters('bwafpassword')]"
+    },
+    "customData": "[concat('#include\n',uri(parameters('_artifactsLocation'),concat('Cloud-Init.txt', parameters('_artifactsLocationSasToken'))), variables('userData'))]"
   },
   "resources": [
     {
