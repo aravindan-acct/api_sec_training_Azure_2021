@@ -45,7 +45,7 @@
     "publicipvmname": "api_server_public_ip",
     "publicipprefixname":"natgateway_public_ip_1",
     "adminusername": "labuser",
-    "license": "hourly",
+    "license": "byol",
     "customData": "[concat('#include\n',uri(variables('_artifactsLocation'),concat('Cloud-Init.txt', variables('_artifactsLocationSasToken'))))]"
   },
   "resources": [
@@ -260,7 +260,7 @@
           "imageReference": {
             "publisher": "barracudanetworks",
             "offer": "waf",
-            "sku": "hourly",
+            "sku": "byol",
             "version": "latest"
           },
           "osDisk": {
