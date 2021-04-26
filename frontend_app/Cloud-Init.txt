@@ -27,5 +27,6 @@ echo $WAFPublicIP
 pip3 install --user -r $dir/frontend_UI_app/requirements.txt
 python3 $dir/waf_configuration_azure.py
 echo "waf configured"
-cd $dir/frontend_UI_app/
+sudo cp -r $dir/frontend_UI_app/ / 
+cd /frontend_UI_app/
 python3 -m project &
