@@ -29,4 +29,4 @@ python3 $dir/waf_configuration_azure.py
 echo "waf configured"
 sudo cp -r $dir/frontend_UI_app/ / 
 cd /frontend_UI_app/
-python3 -m project &
+nohup python3 -m project &
