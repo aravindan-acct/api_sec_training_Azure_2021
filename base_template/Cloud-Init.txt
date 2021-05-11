@@ -17,4 +17,4 @@ cd $dir/petstore/
 pip3 install --user -r requirements.txt
 pip3 install --user connexion[swagger-ui]
 cd $dir/petstore/api_server
-python3 -m swagger_server &
+nohup python3 -m swagger_server &
