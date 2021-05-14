@@ -12,6 +12,7 @@ cp $dir/frontend_UI_app/xml_to_json.py $dir/
 cp $dir/frontend_UI_app/waf_configuration_azure.py $dir/
 pip install xmltodict
 python $dir/xml_to_json.py
+touch /tmp/withwaf.txt
 wafip=$(cat $dir/waf_json | jq -r '.waf_ip')
 echo $wafIP
 wafpublicip=$(cat $dir/waf_json | jq -r '.waf_public_ip')
